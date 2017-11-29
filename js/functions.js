@@ -1,29 +1,57 @@
 (function(){
     var radios= document.querySelectorAll('input');
-    var img= document.querySelectorAll('img');
-    console.log(radios[0]);
+	var img= document.querySelectorAll('img');
+	var labelBackward= document.querySelector('.gallery__control--backward');
+	var labelForward= document.querySelector('.gallery__control--forward');
+	img[0].style.opacity= 1;
 
-    	for (var i = 0, length = radios.length; i < length; i++)
-		{
-			radios[i].addEventListener("click", handle(radios[i].getAttribute("id")));
+	labelBackward.addEventListener("click", function(){
+		if(radios[1].checked){
+			img[0].style.opacity= 1;
+			radios[1].checked=false;
+			radios[0].checked=true;
+			img[1].style.opacity= 0;
+			img[2].style.opacity= 0;
+			img[3].style.opacity= 0;
+		}else if(radios[2].checked){
+			img[1].style.opacity= 1;
+			radios[2].checked=false;
+			radios[1].checked=true;
+			img[0].style.opacity= 0;
+			img[2].style.opacity= 0;
+		}else if(radios[3].checked){
+			img[2].style.opacity= 1;
+			radios[3].checked=false;
+			radios[2].checked=true;
+			img[0].style.opacity= 0;
+			img[1].style.opacity= 0;
+			img[3].style.opacity= 0;
 		}
+	});
 
-		function handle(id){
-			//if(radios[i].checked){
-				console.log(id);
-    			if(id=="1"){
-    				img[0].style.opacity= 1;
-    			}else if(id=="2"){
-    				img[1].style.opacity= 1;
-    			}else if(id=="3"){
-    				img[2].style.opacity= 1;
-    			}
-			//}
+	labelForward.addEventListener("click", function(){
+		if(radios[0].checked){
+			img[1].style.opacity= 1;
+			radios[0].checked=false;
+			radios[1].checked=true;
+			img[0].style.opacity= 0;
+			img[2].style.opacity= 0;
+			img[3].style.opacity= 0;
+		}else if(radios[1].checked){
+			img[2].style.opacity= 1;
+			radios[1].checked=false;
+			radios[2].checked=true;
+			img[0].style.opacity= 0;
+			img[1].style.opacity= 0;
+			img[3].style.opacity= 0;
+		}else if(radios[2].checked){
+			img[3].style.opacity= 1;
+			radios[2].checked=false;
+			radios[3].checked=true;
+			img[0].style.opacity= 0;
+			img[1].style.opacity= 0;
+			img[2].style.opacity= 0;
 		}
-
-    //radios.addEventListener("click", handle);
-
-  /*  var imagenes=["../img/imagen1.jpg", "../img/imagen2.jpg", "../img/imagen3.jpg", "../img/imagen4.jpg", "../img/imagen5.jpg", "../img/imagen6.jpg", "../img/imagen7.jpg"]
-    img.src=imagenes[3];*/
+	});
 }
 ());

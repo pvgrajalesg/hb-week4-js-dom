@@ -1,14 +1,9 @@
 .gallery__images img{
-	width: 700px;
-	height: 500px;	
-<<<<<<< HEAD
-	//position: absolute;
-	display: block;
-	margin: 0 auto;	
-=======
+	width: 100%;
+	height: 500px;
+	object-fit: cover;	
 	position: absolute;
 	opacity: 0;	
->>>>>>> 09a346b327bd98079c13892684bc50f076ea9f55
 }
 
 .gallery__activator{
@@ -44,8 +39,9 @@
 
 .gallery__control--forward{
 	right: 100px;
-	transform: rotate(45deg);	
+	transform: rotate(45deg);
 }
+
 
 @include small-screen{
 	.gallery__images img{
@@ -53,13 +49,23 @@
 		height: 500px;	
 		position: absolute;	
 	}
+
+	.gallery__control--forward{
+		right: 10px;
+		transform: rotate(45deg);
+	}
 }
+
 
 @include medium-screen{
 	.gallery__images img{
 		width: 1000px;
 		height: 500px;	
-		position: absolute;	
+		//position: absolute;	
 	}
+	.gallery__control--forward{
+		right: 50px;
+		transform: rotate(45deg);
+	}		
 }
 
