@@ -1,20 +1,22 @@
-.imagenes img{
-	width: 100%;
+.gallery__images img{
+	width: 700px;
 	height: 500px;	
-	position: absolute;	
+	//position: absolute;
+	display: block;
+	margin: 0 auto;	
 }
 
-.carousel__activator{
+.gallery__activator{
 	position: relative;
 	text-align: center;
 	top: 230px;
 }
 
-.carousel__control:hover {
+.gallery__control:hover {
 	opacity: 1;
 }
 
-.carousel__control {
+.gallery__control {
 	height: 30px;
 	width: 30px;
 	margin-top: -15px;
@@ -30,12 +32,29 @@
 	//z-index: 3;
 }
 
-.carousel__control--backward{
+.gallery__control--backward{
 	left: 100px;
 	transform: rotate(-135deg);
 }
 
-.carousel__control--forward{
+.gallery__control--forward{
 	right: 100px;
 	transform: rotate(45deg);	
 }
+
+@include small-screen{
+	.gallery__images img{
+		width: 500px;
+		height: 500px;	
+		position: absolute;	
+	}
+}
+
+@include medium-screen{
+	.gallery__images img{
+		width: 1000px;
+		height: 500px;	
+		position: absolute;	
+	}
+}
+
