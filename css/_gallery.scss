@@ -1,9 +1,14 @@
 .gallery__images img{
 	width: 700px;
 	height: 500px;	
+<<<<<<< HEAD
 	//position: absolute;
 	display: block;
 	margin: 0 auto;	
+=======
+	position: absolute;
+	opacity: 0;	
+>>>>>>> 09a346b327bd98079c13892684bc50f076ea9f55
 }
 
 .gallery__activator{
