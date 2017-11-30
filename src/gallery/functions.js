@@ -1,18 +1,36 @@
 (function(){
+
+	var gallery= document.querySelector('.gallery__images');
+	gallery.innerHTML =`<img src="../images/image1.jpg"> 
+						<img src="../images/image2.jpg"> 
+						<img src="../images/image3.jpg"> 
+						<img src="../images/image4.jpg">`;
+
+	var activators= document.querySelector('.gallery__activators');
+	activators.innerHTML =`<input type="radio" id="0" name="activator" checked="checked" class="gallery__activator"/>
+				<input type="radio" id="1" name="activator" class="gallery__activator"/>
+				<input type="radio" id="2" name="activator" class="gallery__activator"/>
+				<input type="radio" id="3" name="activator" class="gallery__activator"/>`;
+
+	var controls= document.querySelector('.gallery__controls');
+	controls.innerHTML =`<label class="gallery__control gallery__control--backward"></label>
+				<label class="gallery__control gallery__control--forward"></label>`;
+
+
     var radios= document.querySelectorAll('input');
 	var img= document.querySelectorAll('img');
 	var labelBackward= document.querySelector('.gallery__control--backward');
 	var labelForward= document.querySelector('.gallery__control--forward');
 	img[0].style.opacity= 1;
 
-	//Cambio de imagen con el teclado
+	//Change image with the keyboard
 	window.addEventListener('keydown', moveSelection);
 
-	//Cambio de imagen con flechas
+	//Change image with the arrows
 	labelBackward.addEventListener("click", moveLeft);
 	labelForward.addEventListener("click", moveRight);
 
-	//Cambio de imagen con radio button
+	//Change image with the radio button
 	radios[0].addEventListener("click", imageSelectionButton);
 	radios[1].addEventListener("click", imageSelectionButton);
 	radios[2].addEventListener("click", imageSelectionButton);
