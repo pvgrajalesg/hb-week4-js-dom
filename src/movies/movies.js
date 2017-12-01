@@ -45,7 +45,7 @@ var jsonMovies = `{
 	var peliculas= movies.movies;
 	var keysMovies = Object.keys(peliculas);
 
-	document.body.innerHTML=`<select id="movies"></select>`;
+	document.body.innerHTML=`<select class="moviesSelect"></select>`;
 	var select= document.querySelector("select");
 
 	var tag= `<option value="">Choose an category:</option>`;
@@ -54,17 +54,24 @@ var jsonMovies = `{
 	}
 	select.innerHTML=tag;
 
+	var divContainer=document.createElement("div");
+	divContainer.classList.add("movies-container");
+	document.body.appendChild(divContainer);
+
 	select.addEventListener("change", function(){
 		var selectCategory = select.options[select.selectedIndex].value;
-		console.log(selectCategory);
-		for (var keyMovies in keysMovies) {
+		for (let keyMovies in keysMovies) {
 			if(peliculas[keysMovies[keyMovies]].category===selectCategory){
-				var img = document.createElement("img");
-				document.body.appendChild(img);
+				let div=document.createElement("div");
+				let img = document.createElement("img");
+				div.classList.add("movie__container");
+				img.src='../images/image1.jpg';
+				div.appendChild(img);
+				divContainer.appendChild(div);
+			}
+			console.log(peliculas[keysMovies[keyMovies]].category);
 		}
-		console.log(peliculas[keysMovies[keyMovies]].category);
-	}
-});
+	});
 
 	
 
