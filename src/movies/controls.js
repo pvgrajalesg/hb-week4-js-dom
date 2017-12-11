@@ -2,9 +2,8 @@ export class Control{
 	constructor(node, data){
 
 		this.node = node
-		//var movies = JSON.parse(data)
-		console.log(data[0].category)
 		this.setControls(data)
+		this.filter(data)
 	}
 
 	setControls(data){
@@ -14,9 +13,8 @@ export class Control{
 	}
 
 	static controls(category){
-		console.log(category)
 		return (
-			`<button class="controls__button"> ${category} </button>`
+			`<button class="controls__button" id=${category}> ${category} </button>`
 			)
 		
 	}
@@ -25,13 +23,31 @@ export class Control{
 		const categories = data.reduce((acc, {category}) =>{
 			if(!acc.includes(category)){
 				acc.push(category)
-				console.log(category)
 			}
 
 			return acc;
 		},[])
 
 		return categories;
+	}
+
+	filter(data){
+		var buttons = this.node.querySelectorAll('.controls__button')
+		for (const button of buttons){
+			button.addEventListener("click", this.moviesSelect.bind(this, data, button.id))
+		}
+	}
+
+	moviesSelect(data, buttonId){
+		const moviesFilter = data.filter(this.moviesChoose.bind(this, buttonId))  
+		console.log(moviesFilter[0])
+		
+	}
+
+	moviesChoose(buttonId, movie){
+		if(movie.category===buttonId){
+			return true
+		}
 	}
 }
 

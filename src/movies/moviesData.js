@@ -9,15 +9,22 @@ export default [
 	{
 		title : 'Deadpool',
 		year : 2016,
-		category : 'Science fiction',
+		category : 'Science',
 		image : 'https://pics.filmaffinity.com/deadpool-834516798-large.jpg'
 	},
 
 	{
 		title : 'Harry potter',
-		year : 2016,
-		category : 'Science fiction',
-		image : 'https://pics.filmaffinity.com/deadpool-834516798-large.jpg'
+		year : 2010,
+		category : 'Science',
+		image : 'https://imagessl3.casadellibro.com/m/ig/3/4088703.jpg'
 	},
+
+	{
+		title : 'Harry potter',
+		year : 2010,
+		category : 'Comedy',
+		image : 'https://imagessl3.casadellibro.com/m/ig/3/4088703.jpg'
+	}
 
 ] 

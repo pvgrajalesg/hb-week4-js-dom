@@ -14,6 +14,7 @@
     "watch:js": "onchange 'src/**/*.js' -- npm-run-all copy:js",
     "copy:html": "copy 'src/**/*.html' public",
     "copy:js": "copy 'src/**/*.js' public",
+    "copy:images": "copy 'src/**/*.jpg' public",
     "precommit": "npm run lint",
     "clean": "rm -rf public/",
     "start:build": "npm-run-all build serve",

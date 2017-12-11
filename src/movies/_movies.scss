@@ -5,7 +5,6 @@
 	display : flex;
 	align-items: center;
 	justify-content: center;
-	//space-between : 10px;
 
 	&__button{
 		width: 70px;
@@ -16,19 +15,22 @@
 }
 
 .movies-container{
-	background-color: #FFF;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 10px;
+
+	.movie__container{
+		background-color: black;
+		height: 200px;
+
+		img{
+			width: 150px;
+			height: 120px;
+			display: block;
+			margin: 30px auto;
+		}
+		
+	}
 }
 
-.movie__container{
-	display: block;
-	margin: 0 auto;
-}
 
-
-img{
-	width: 100px;
-	height: 100px;
-}

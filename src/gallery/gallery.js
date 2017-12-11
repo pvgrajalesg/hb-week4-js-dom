@@ -84,28 +84,30 @@ export class Gallery{
 	};
 
 	moveLeft(){
-		for (let index = 1; index < this.elements.radios.length; index++){
-			if(this.elements.radios[index].checked){
-				this.imageSelection(index-1)
+		for (let element = 1; element < this.elements.radios.length; element++){
+			if(this.elements.radios[element].checked){
+				this.imageSelection(element-1)
+				break
 			}			
 		}
 	}
 
 	moveRight(){
-		for (let index = 0; index < this.elements.radios.length-1; index++){
-			if(this.elements.radios[index].checked){
-				this.imageSelection(index+1)
+		for (let element = 0; element < this.elements.radios.length-1; element++){
+			if(this.elements.radios[element].checked){
+				this.imageSelection(element+1)
+				break
 			}			
 		}
 	}
 
 	imageSelection(id){
 		this.elements.radios[id].checked=true
-		for (let index = 0; index < this.elements.img.length; index++) {
-			this.elements.img[index].style.opacity=0
+		for (let j = 0; j < this.elements.img.length; j++) {
+			this.elements.img[j].style.opacity=0
 			
 		}
-		this.elements.img[id].style.opacity=1
+		this.elements.img[id].style.opacity = 1
 	}
 	
 }
