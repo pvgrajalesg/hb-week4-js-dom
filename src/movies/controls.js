@@ -3,7 +3,6 @@ export class Control{
 
 		this.node = node
 		this.setControls(data)
-		this.filter(data)
 	}
 
 	setControls(data){
@@ -14,7 +13,7 @@ export class Control{
 
 	static controls(category){
 		return (
-			`<button class="controls__button" id=${category}> ${category} </button>`
+			`<button class="controls-container__button" id=${category}> ${category} </button>`
 			)
 		
 	}
@@ -31,24 +30,6 @@ export class Control{
 		return categories;
 	}
 
-	filter(data){
-		var buttons = this.node.querySelectorAll('.controls__button')
-		for (const button of buttons){
-			button.addEventListener("click", this.moviesSelect.bind(this, data, button.id))
-		}
-	}
-
-	moviesSelect(data, buttonId){
-		const moviesFilter = data.filter(this.moviesChoose.bind(this, buttonId))  
-		console.log(moviesFilter[0])
-		
-	}
-
-	moviesChoose(buttonId, movie){
-		if(movie.category===buttonId){
-			return true
-		}
-	}
 }
 
 export default Control

@@ -1,4 +1,4 @@
-.controls{
+.controls-container{
 	width: 100%;
 	height: 30px;
 	margin : 20px auto;
@@ -18,12 +18,24 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 10px;
+	
 
 	.movie__container{
+		transition: transform 1s;
 		background-color: black;
 		height: 200px;
+		transform: scaleX(1);
 
-		img{
+		&--rotate{
+			transform: scaleX(-1);
+		}
+
+		&__title{
+			color: white;
+			text-align: center;
+		}
+
+		&__img{
 			width: 150px;
 			height: 120px;
 			display: block;
