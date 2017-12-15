@@ -14,21 +14,54 @@
 
 }
 
-.movies-container{
+.cards-container{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 10px;
+}
+
+.card{
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  position: relative;
+  width: 90%;
+  height: 260px;
+}
+
+.card--rotate .card__front {
+	z-index: 0;
+}
+
+.card--rotate .card__back {
+	z-index: 1;
+}
+
+.card__back{
+	position: absolute;
+	background: black;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+
+	&__title{
+		color: white;
+		text-align: center;
+	}
+	
+	&__review{
+		color: white;
+	}
+}
 	
 
-	.movie__container{
-		transition: transform 1s;
+	.card__front{
 		background-color: black;
-		height: 200px;
-		transform: scaleX(1);
-
-		&--rotate{
-			transform: scaleX(-1);
-		}
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 1;
 
 		&__title{
 			color: white;
@@ -43,6 +76,5 @@
 		}
 		
 	}
-}
 
 
