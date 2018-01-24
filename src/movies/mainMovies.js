@@ -1,6 +1,6 @@
-import Movie from './movies.js'
-import data from './moviesData.js'
-import Control from './controls.js'
+//import Movie from './movies.js'
+//import data from './moviesData.js'
+//import Control from './controls.js'
 
 /* eslint-disable */
 new Control(document.querySelector('.controls-container'), data)

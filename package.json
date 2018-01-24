@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "http-server -c-1",
-    "build": "npm-run-all clean lint --parallel build:css copy:**",
+    "build": "npm-run-all clean lint --parallel build:** copy:**",
     "build:css": "node-sass src/index.scss public/index.css --output-style compressed",
     "lint": "npm-run-all lint:**",
     "lint:css": "stylelint 'src/**/*.scss' --syntax scss",
@@ -20,7 +20,8 @@
     "precommit": "npm run lint",
     "clean": "rm -rf public/",
     "start:build": "npm-run-all build serve",
-    "start": "npm-run-all copy:** build:css --parallel watch:** serve"
+    "start": "npm-run-all copy:** build:** --parallel watch:** serve",
+    "build:js": "webpack src/movies/mainMovies.js src/movies/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "standard": "^10.0.3",
     "stylelint": "^8.3.1",
     "stylelint-config-recommended-scss": "^2.0.0",
-    "stylelint-scss": "^2.1.0"
+    "stylelint-scss": "^2.1.0",
+    "webpack": "^3.10.0"
   }
 }
