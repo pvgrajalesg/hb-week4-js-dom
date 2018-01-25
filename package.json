@@ -7,7 +7,7 @@
   "scripts": {
     "serve": "http-server -c-1",
     "build": "npm-run-all clean lint --parallel build:** copy:**",
-    "build:css": "node-sass src/index.scss public/index.css --output-style compressed",
+    "build:js": "webpack",
     "lint": "npm-run-all lint:**",
     "lint:css": "stylelint 'src/**/*.scss' --syntax scss",
     "lint:js": "standard 'src/**/*.js'",
@@ -17,11 +17,10 @@
     "copy:html": "copy 'src/**/*.html' public",
     "copy:js": "copy 'src/**/*.js' public",
     "copy:images": "copy 'src/**/*.jpg' public",
-    "precommit": "npm run lint",
+    "precommit": "npm run lint:css",
     "clean": "rm -rf public/",
     "start:build": "npm-run-all build serve",
-    "start": "npm-run-all copy:** build:** --parallel watch:** serve",
-    "build:js": "webpack src/movies/mainMovies.js src/movies/bundle.js"
+    "start": "npm-run-all build:** copy:html --parallel serve"
   },
   "repository": {
     "type": "git",
@@ -35,11 +34,14 @@
   "homepage": "https://github.com/pvgrajalesg/hb-week4-js-dom#readme",
   "devDependencies": {
     "copy": "^0.3.1",
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
     "http-server": "^0.10.0",
     "husky": "^0.14.3",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "onchange": "^3.2.1",
+    "sass-loader": "^6.0.6",
     "standard": "^10.0.3",
     "stylelint": "^8.3.1",
     "stylelint-config-recommended-scss": "^2.0.0",
